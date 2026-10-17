@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "framework": "vanilla",
+  "projectProfile": "interactive-experimental",
+  "projectScope": "small",
+  "registry": {
+    "url": null,
+    "autoSync": false,
+    "cacheTtlHours": 24,
+    "schemaVersion": 1
+  },
+  "privacy": {
+    "telemetry": false,
+    "uploadProjectFiles": false,
+    "autoSync": false
+  },
+  "styling": {
+    "strategy": "hybrid",
+    "classNaming": "bem-kebab-case",
+    "componentCss": "colocated-or-parallel",
+    "tokenModel": [
+      "primitive",
+      "semantic",
+      "component-when-useful"
+    ],
+    "responsiveStrategy": "fluid-first-hybrid",
+    "breakpoints": "derive-from-layout",
+    "themes": "only-when-requested-or-required",
+    "fontPolicy": "google-fonts-link (kept from original wheel); swap to local woff2 when desired"
+  },
+  "motion": {
+    "webDefault": "css",
+    "simpleMotion": "prefer-css-or-native-capabilities",
+    "reactGsapIntegration": "useGSAP-when-appropriate",
+    "astroStrategy": "choose-plain-script-or-existing-island",
+    "expoDefault": "reanimated",
+    "customEngine": null,
+    "architecture": "hybrid-registry-and-component-owned",
+    "generateTextSplitUtilitiesForWeb": false,
+    "reducedMotion": "required",
+    "dynamicContent": "explicit-reinitialization-first; scoped-observer-only-if-needed",
+    "enabled": true
+  },
+  "state": {
+    "local": "framework-native",
+    "sharedClient": "zustand-when-needed",
+    "server": "tanstack-query-when-needed",
+    "preferFrameworkNativeData": true,
+    "avoidDuplicateServerState": true
+  },
+  "api": {
+    "client": "single-endpoint-fetch; key held by a Netlify Function",
+    "multipart": true,
+    "endpointRegistry": "single-file-until-domain-complexity-justifies-splitting",
+    "typedContracts": true,
+    "enabled": true
+  },
+  "tooling": {
+    "formatter": "detect-or-configure-one-of-prettier-or-biome",
+    "husky": "optional-when-useful",
+    "githubActions": "out-of-scope-unless-requested",
+    "reuseExistingDependencies": true
+  },
+  "architecture": {
+    "featureDirectories": "optional-when-domain-complexity-justifies-them",
+    "inspectExistingRepository": true,
+    "createOnlyNeededDirectories": true,
+    "writeArchitectureDocument": true
+  },
+  "deploy": {
+    "platform": "netlify",
+    "publish": "src",
+    "functions": "netlify/functions",
+    "secrets": "GROQ_API_KEY in Netlify env / local .env"
+  }
+}

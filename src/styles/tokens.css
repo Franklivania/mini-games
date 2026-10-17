@@ -1,0 +1,94 @@
+/* Mini Games design tokens — neo-brutalist arcade: cream paper, ink outlines, hard shadows, loud colour. */
+:root {
+  /* ---------- Primitive: colour ---------- */
+  --ink-900: #111111;
+  --ink-700: #2b2b2b;
+  --ink-500: #4a4a4a;
+  --ink-300: #8a8578;
+  --paper-0: #ffffff;
+  --paper-50: #fff6e3;
+  --paper-100: #f2e3c4;
+
+  --yellow-400: #ffd84d;
+  --teal-400: #4ecdc4;
+  --coral-400: #ff6b6b;
+  --blue-500: #2e8cff;
+  --blue-200: #a8cbff;
+  --pink-300: #f7b5ee;
+  --green-400: #9be37d;
+  --orange-400: #ffb13b;
+
+  /* ---------- Semantic ---------- */
+  --color-text: var(--ink-900);
+  --color-text-muted: var(--ink-500);
+  --color-surface: var(--paper-50);
+  --color-surface-raised: var(--paper-0);
+  --color-surface-sunken: var(--paper-100);
+  --color-border: var(--ink-900);
+  --color-accent: var(--yellow-400);
+  --color-danger: var(--coral-400);
+  --color-success: var(--green-400);
+  --color-focus-ring: var(--blue-500);
+
+  /* ---------- Typography ---------- */
+  --font-display: "Anton", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --text-xs: clamp(0.72rem, 0.69rem + 0.12vw, 0.78rem);
+  --text-sm: clamp(0.82rem, 0.79rem + 0.14vw, 0.9rem);
+  --text-base: clamp(0.96rem, 0.92rem + 0.18vw, 1.05rem);
+  --text-lg: clamp(1.12rem, 1.04rem + 0.35vw, 1.3rem);
+  --text-xl: clamp(1.3rem, 1.18rem + 0.55vw, 1.6rem);
+  --text-2xl: clamp(1.55rem, 1.32rem + 1vw, 2.1rem);
+  --text-3xl: clamp(2rem, 1.5rem + 2.2vw, 3.4rem);
+  --text-display: clamp(3.4rem, 2rem + 6vw, 7rem);
+  --line-height-tight: 0.92;
+  --line-height-heading: 1.1;
+  --line-height-body: 1.6;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-section: clamp(3rem, 7vw, 6rem);
+
+  /* ---------- Layout ---------- */
+  --container-lg: 64rem;
+  --container-xl: 78rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+
+  /* ---------- Borders, radius, elevation ---------- */
+  --border-width: 3px;
+  --border-width-heavy: 4px;
+  --border: var(--border-width) solid var(--color-border);
+  --radius-pill: 999px;
+  --shadow-xs: 2px 2px 0 var(--color-border);
+  --shadow-sm: 4px 4px 0 var(--color-border);
+  --shadow-md: 6px 6px 0 var(--color-border);
+  --shadow-lg: 10px 10px 0 var(--color-border);
+
+  /* ---------- Layers ---------- */
+  --z-raised: 2;
+  --z-overlay: 10;
+  --z-confetti: 11;
+
+  /* ---------- Motion ---------- */
+  --duration-instant: 100ms;
+  --duration-fast: 160ms;
+  --duration-normal: 260ms;
+  --duration-slow: 420ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-bounce: cubic-bezier(0.3, 1.6, 0.6, 1);
+}

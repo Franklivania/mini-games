@@ -1,0 +1,39 @@
+/* Use these native CSS effects for simple motion. Add a timeline engine only when needed. */
+[data-motion-clip] {
+  display: inline-block;
+  overflow: clip;
+  vertical-align: bottom;
+}
+
+[data-motion-unit] {
+  display: inline-block;
+}
+
+@keyframes setup-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes setup-rise-in {
+  from { opacity: 0; transform: translate3d(0, 0.75rem, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes setup-scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+[data-motion="fade-in"] { animation: setup-fade-in var(--duration-normal) var(--ease-enter) both; }
+[data-motion="rise-in"] { animation: setup-rise-in var(--duration-slow) var(--ease-enter) both; }
+[data-motion="scale-in"] { animation: setup-scale-in var(--duration-normal) var(--ease-enter) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

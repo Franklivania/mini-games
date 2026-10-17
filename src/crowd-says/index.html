@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crowd Says — Mini Games</title>
+  <meta name="description" content="We asked the crowd. Two teams guess the most popular answers, dodge three strikes and steal the pot." />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/global.css" />
+  <link rel="stylesheet" href="/styles/pages/crowd-says.css" />
+  <script type="module" src="/scripts/crowd-says/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-header__logo" href="/"><img class="site-header__mark" src="/assets/favicon.svg" alt="" />Mini Games</a>
+    <nav class="site-header__nav" aria-label="Games">
+      <a class="site-header__link" href="/spin/">Spin the Wheel</a>
+      <a class="site-header__link site-header__link--active" href="/crowd-says/" aria-current="page">Crowd Says</a>
+    </nav>
+  </header>
+
+  <main class="page crowd">
+    <!-- ============ SETUP ============ -->
+    <section id="setup" class="setup" aria-labelledby="setup-title">
+      <div class="setup__intro">
+        <span class="tape tape--yellow">We surveyed the crowd</span>
+        <h1 id="setup-title" class="setup__title">Crowd <span class="setup__hl">Says!</span></h1>
+        <p class="setup__lede">Two teams. One board of the crowd's most popular answers. Guess them all before you rack up three strikes — or watch the other team steal the whole pot.</p>
+
+        <ol class="rules card">
+          <li><b>Guess</b> The team with the board guesses answers one at a time. Every hit adds its points to the pot.</li>
+          <li><b>Strike</b> Wrong guesses earn an ✕. Three strikes and the board goes to the other team.</li>
+          <li><b>Steal</b> The other team gets one guess. Hit, and they take the pot. Miss, and it goes back.</li>
+          <li><b>Win</b> Last round counts double. Highest score takes it.</li>
+        </ol>
+      </div>
+
+      <form id="setupForm" class="setup__form card" autocomplete="off">
+        <fieldset class="field">
+          <legend class="eyebrow">Teams</legend>
+          <div class="setup__teams">
+            <label class="pill-input setup__team">
+              <span class="setup__team-dot setup__team-dot--a" aria-hidden="true"></span>
+              <span class="sr-only">Team one name</span>
+              <input id="teamA" type="text" maxlength="18" value="Team Jollof" required />
+            </label>
+            <span class="setup__vs" aria-hidden="true">vs</span>
+            <label class="pill-input pill-input--green setup__team">
+              <span class="setup__team-dot setup__team-dot--b" aria-hidden="true"></span>
+              <span class="sr-only">Team two name</span>
+              <input id="teamB" type="text" maxlength="18" value="Team Suya" required />
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend class="eyebrow">Rounds</legend>
+          <div class="segmented" role="radiogroup">
+            <label><input type="radio" name="rounds" value="3" /><span>3</span></label>
+            <label><input type="radio" name="rounds" value="5" checked /><span>5</span></label>
+            <label><input type="radio" name="rounds" value="7" /><span>7</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend class="eyebrow">Topic</legend>
+          <div class="topics" id="topics">
+            <label class="topic"><input type="radio" name="topic" value="" checked /><span>🎲 Surprise me</span></label>
+            <label class="topic"><input type="radio" name="topic" value="Naija life" /><span>Naija life</span></label>
+            <label class="topic"><input type="radio" name="topic" value="Food" /><span>Food</span></label>
+            <label class="topic"><input type="radio" name="topic" value="School" /><span>School</span></label>
+            <label class="topic"><input type="radio" name="topic" value="Work" /><span>Work</span></label>
+            <label class="topic"><input type="radio" name="topic" value="Love" /><span>Love</span></label>
+            <label class="topic"><input type="radio" name="topic" value="Family" /><span>Family</span></label>
+            <label class="topic"><input type="radio" name="topic" value="Pop culture" /><span>Pop culture</span></label>
+            <label class="topic"><input type="radio" name="topic" value="Sports" /><span>Sports</span></label>
+          </div>
+          <label class="pill-input pill-input--orange setup__custom">
+            <svg class="pill-input__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+            <span class="sr-only">Custom topic</span>
+            <input id="customTopic" type="text" maxlength="60" placeholder="…or type any topic: Nollywood, campus life, Afrobeats" />
+          </label>
+        </fieldset>
+
+        <label class="toggle">
+          <input type="checkbox" id="useAI" checked />
+          <span class="toggle__box" aria-hidden="true"></span>
+          Generate fresh boards with AI
+        </label>
+        <p class="setup__note">AI boards are estimates of what a crowd would say, not real survey data. Untick to use the built-in offline boards.</p>
+
+        <button type="submit" class="btn btn--coral btn--lg setup__start">
+          Start the game
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </section>
+
+    <!-- ============ PLAY ============ -->
+    <section id="play" class="play" aria-label="Game board" hidden>
+      <div class="scoreboard">
+        <div class="team team--a" id="teamCardA">
+          <span class="team__name" id="teamNameA">Team A</span>
+          <span class="team__score" id="teamScoreA">0</span>
+          <span class="team__flag">Has the board</span>
+        </div>
+        <div class="scoreboard__mid">
+          <span class="scoreboard__round" id="roundLabel">Round 1 / 5</span>
+          <span class="scoreboard__pot-label">Pot</span>
+          <span class="scoreboard__pot" id="pot">0</span>
+          <span class="scoreboard__mult" id="multLabel" hidden>Double points!</span>
+        </div>
+        <div class="team team--b" id="teamCardB">
+          <span class="team__name" id="teamNameB">Team B</span>
+          <span class="team__score" id="teamScoreB">0</span>
+          <span class="team__flag">Has the board</span>
+        </div>
+      </div>
+
+      <div class="question">
+        <span class="question__label" id="questionMeta">We asked 100 people…</span>
+        <h2 class="question__text" id="questionText">…</h2>
+      </div>
+
+      <ol class="board" id="board" aria-live="polite"></ol>
+
+      <div class="turn">
+        <div class="strikes" aria-label="Strikes">
+          <span class="strikes__box" data-strike="1">✕</span>
+          <span class="strikes__box" data-strike="2">✕</span>
+          <span class="strikes__box" data-strike="3">✕</span>
+        </div>
+        <p class="turn__status" id="status" role="status">—</p>
+      </div>
+
+      <form id="guessForm" class="pill-input pill-input--orange guess" autocomplete="off">
+        <svg class="pill-input__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/></svg>
+        <label for="guessInput" class="sr-only">Your guess</label>
+        <input id="guessInput" type="text" maxlength="60" placeholder="What did the crowd say?" />
+        <button type="submit" class="pill-input__btn">Guess</button>
+        <span class="grid-deco guess__deco" aria-hidden="true"></span>
+      </form>
+
+      <div class="round-end" id="roundEnd" hidden>
+        <p class="round-end__text" id="roundEndText">—</p>
+        <div class="round-end__actions">
+          <button type="button" class="btn" id="revealRestBtn">Reveal the rest</button>
+          <button type="button" class="btn btn--yellow" id="nextRoundBtn">Next round <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="host">
+        <span class="eyebrow">Host tools</span>
+        <div class="host__actions">
+          <button type="button" class="link-btn" id="strikeBtn">Give a strike</button>
+          <button type="button" class="link-btn" id="skipBtn">Skip this board</button>
+          <button type="button" class="link-btn" id="quitBtn">End game</button>
+        </div>
+        <p class="host__hint">Matcher missed a right answer? Click its tile to award it.</p>
+      </div>
+
+      <p class="notice" id="notice" hidden></p>
+    </section>
+  </main>
+
+  <!-- Loading -->
+  <div class="loading" id="loading" hidden>
+    <div class="loading__card">
+      <div class="loading__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p>Asking the crowd…</p>
+    </div>
+  </div>
+
+  <!-- Big strike -->
+  <div class="big-x" id="bigX" aria-hidden="true"></div>
+
+  <!-- Game over -->
+  <div id="gameOver" class="modal" hidden>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="winnerName">
+      <span class="tape tape--yellow" id="gameOverTag">The crowd has spoken</span>
+      <p id="winnerName" class="modal__title">—</p>
+      <p class="modal__text" id="finalScore">—</p>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--coral" id="rematchBtn">Rematch</button>
+        <button type="button" class="btn" id="newGameBtn">New teams</button>
+        <a class="btn btn--ghost" href="/">Back to games</a>
+      </div>
+    </div>
+  </div>
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+</body>
+</html>

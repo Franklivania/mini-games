@@ -1,0 +1,21 @@
+{
+  "name": "mini-games",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A little arcade of party games: Spin the Wheel and Crowd Says.",
+  "scripts": {
+    "dev": "node --env-file=.env ./node_modules/netlify-cli/bin/run.js dev",
+    "serve": "npx --yes serve src",
+    "check:groq": "node --env-file=.env scripts/check-groq.mjs"
+  },
+  "dependencies": {
+    "groq-sdk": "^1.6.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^23.0.0"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}

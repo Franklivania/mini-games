@@ -1,0 +1,60 @@
+# Static site in src/ + one serverless function that holds the Groq key.
+[build]
+  publish = "src"
+  functions = "netlify/functions"
+  # No build step: pages are plain HTML/CSS/JS. Netlify still runs `npm install` for the function's groq-sdk.
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[dev]
+  # `npm run dev` (netlify dev) serves src/ and runs the function locally with your .env
+  framework = "#static"
+  publish = "src"
+  port = 8888
+  functions = "netlify/functions"
+
+# ---------- Redirects (first match wins) ----------
+
+# API: keep the function behind a clean path the pages call.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Friendly aliases for each game.
+[[redirects]]
+  from = "/wheel"
+  to = "/spin/"
+  status = 301
+
+[[redirects]]
+  from = "/spinner"
+  to = "/spin/"
+  status = 301
+
+[[redirects]]
+  from = "/feud"
+  to = "/crowd-says/"
+  status = 301
+
+[[redirects]]
+  from = "/survey"
+  to = "/crowd-says/"
+  status = 301
+
+# Anything else that doesn't exist falls through to src/404.html automatically.
+
+# ---------- Headers ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

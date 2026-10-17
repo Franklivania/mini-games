@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Games - party games for the group chat</title>
+  <meta name="description" content="A small arcade of quick party games: spin a name wheel, or guess what the crowd said." />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/global.css" />
+  <link rel="stylesheet" href="/styles/pages/home.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-header__logo" href="/"><img class="site-header__mark" src="/assets/favicon.svg" alt="" />Mini Games</a>
+    <nav class="site-header__nav" aria-label="Games">
+      <a class="site-header__link" href="/spin/">Spin the Wheel</a>
+      <a class="site-header__link" href="/crowd-says/">Crowd Says</a>
+    </nav>
+  </header>
+
+  <main class="page home">
+    <section class="hero" aria-labelledby="hero-title">
+      <span class="badge" data-motion="rise-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>No sign-up. Just play.</span>
+      <h1 id="hero-title" class="hero__title" data-motion="rise-in">
+        <span>Small games,</span>
+        <span class="hero__hl">big arguments.</span>
+      </h1>
+      <p class="hero__lede" data-motion="fade-in">A little arcade for game nights, classrooms and group calls. Pick a game, put it on the big screen, and let the room fight it out.</p>
+    </section>
+
+    <section class="games" aria-labelledby="games-title">
+      <div class="games__head">
+        <h2 id="games-title" class="tape tape--dark">Pick a game <b>2</b></h2>
+      </div>
+
+      <ul class="games__grid">
+        <li>
+          <a class="game-card game-card--spin" href="/spin/">
+            <div class="game-card__art" aria-hidden="true">
+              <svg viewBox="0 0 200 200" class="game-card__wheel">
+                <g stroke="#111" stroke-width="5" stroke-linejoin="round">
+                  <circle cx="100" cy="100" r="88" fill="#ff6b6b"/>
+                  <path d="M100 100 L100 22 A78 78 0 0 1 167.5 61 Z" fill="#ffd84d"/>
+                  <path d="M100 100 L167.5 61 A78 78 0 0 1 167.5 139 Z" fill="#4ecdc4"/>
+                  <path d="M100 100 L167.5 139 A78 78 0 0 1 100 178 Z" fill="#2e8cff"/>
+                  <path d="M100 100 L100 178 A78 78 0 0 1 32.5 139 Z" fill="#f7b5ee"/>
+                  <path d="M100 100 L32.5 139 A78 78 0 0 1 32.5 61 Z" fill="#9be37d"/>
+                  <path d="M100 100 L32.5 61 A78 78 0 0 1 100 22 Z" fill="#ffb13b"/>
+                  <circle cx="100" cy="100" r="18" fill="#fff"/>
+                </g>
+              </svg>
+              <svg viewBox="0 0 40 46" class="game-card__pointer"><path d="M2 2h36v14L20 44 2 16Z" fill="#ffd84d" stroke="#111" stroke-width="4" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__tag">Name picker</span>
+              <h3 class="game-card__title">Spin the Wheel</h3>
+              <p class="game-card__text">Drop in everyone's name, spin, and let fate pick who goes first, who pays, or who washes up.</p>
+              <ul class="game-card__meta">
+                <li>Any group size</li>
+                <li>10 seconds</li>
+                <li>Works offline</li>
+              </ul>
+              <span class="game-card__cta">Spin it <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <a class="game-card game-card--crowd" href="/crowd-says/">
+            <div class="game-card__art" aria-hidden="true">
+              <div class="mini-board">
+                <span class="mini-board__q">Name something people do on a Sunday</span>
+                <span class="mini-board__row is-open"><b>1</b> Go to church <i>38</i></span>
+                <span class="mini-board__row is-open"><b>2</b> Sleep in <i>24</i></span>
+                <span class="mini-board__row"><b>3</b></span>
+                <span class="mini-board__row"><b>4</b></span>
+                <span class="mini-board__x">✕</span>
+              </div>
+            </div>
+            <div class="game-card__body">
+              <span class="game-card__tag">Team survey game</span>
+              <h3 class="game-card__title">Crowd Says</h3>
+              <p class="game-card__text">We asked the crowd. Two teams guess the most popular answers, dodge three strikes, and steal the pot.</p>
+              <ul class="game-card__meta">
+                <li>2 teams</li>
+                <li>15–30 minutes</li>
+                <li>Fresh AI boards</li>
+              </ul>
+              <span class="game-card__cta">Play it <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </li>
+
+        <li>
+          <div class="game-card game-card--soon">
+            <span class="tape tape--coral">Coming soon</span>
+            <p>More games on the way. Got an idea? It probably involves yelling.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="how" aria-labelledby="how-title">
+      <h2 id="how-title" class="how__title">How to host</h2>
+      <ol class="how__steps">
+        <li class="card"><b>01</b><span>Open a game on a laptop or TV everyone can see.</span></li>
+        <li class="card"><b>02</b><span>One person drives — typing names, answers or guesses.</span></li>
+        <li class="card"><b>03</b><span>Everyone else shouts. Results are final. Mostly.</span></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Mini Games — made for game night.</span>
+    <span><a href="/spin/">Spin the Wheel</a> · <a href="/crowd-says/">Crowd Says</a></span>
+  </footer>
+</body>
+</html>
