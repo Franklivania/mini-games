@@ -4,14 +4,60 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spin the Wheel — Mini Games</title>
-  <meta name="description" content="Drop in some names, spin the wheel, let fate decide." />
+  <meta name="description" content="Drop in names, spin the wheel, and let fate decide who goes first. A free party name-picker for game nights and group calls." />
+  <meta name="author" content="Chibuzo Franklin Odigbo" />
+  <meta name="creator" content="Chibuzo Franklin Odigbo" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#fff6e3" />
+  <link rel="canonical" href="https://minigames.grabby.lol/spin/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Games" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Spin the Wheel — Mini Games" />
+  <meta property="og:description" content="Drop in names, spin the wheel, and let fate decide who goes first. A free party name-picker for game nights and group calls." />
+  <meta property="og:url" content="https://minigames.grabby.lol/spin/" />
+  <meta property="og:image" content="https://minigames.grabby.lol/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mini Games — party games for game night, with a colorful prize wheel" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Spin the Wheel — Mini Games" />
+  <meta name="twitter:description" content="Drop in names, spin the wheel, and let fate decide who goes first. A free party name-picker for game nights and group calls." />
+  <meta name="twitter:image" content="https://minigames.grabby.lol/assets/og.png" />
+  <meta name="twitter:image:alt" content="Mini Games — party games for game night, with a colorful prize wheel" />
+
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles/global.css" />
   <link rel="stylesheet" href="/styles/pages/spin.css" />
   <script type="module" src="/scripts/spin.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Spin the Wheel",
+    "url": "https://minigames.grabby.lol/spin/",
+    "description": "Drop in names, spin the wheel, and let fate decide who goes first.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "Mini Games", "url": "https://minigames.grabby.lol/" },
+    "author": {
+      "@type": "Person",
+      "name": "Chibuzo Franklin Odigbo",
+      "email": "cfaodigbo@gmail.com",
+      "url": "https://github.com/Franklivania"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -90,5 +136,10 @@
     </div>
   </div>
   <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <footer class="site-footer">
+    <span>Made by <a href="https://github.com/Franklivania" rel="author me">Chibuzo Franklin Odigbo</a>.</span>
+    <span><a href="/">All games</a> · <a href="/crowd-says/">Crowd Says</a></span>
+  </footer>
 </body>
 </html>
